@@ -16,7 +16,7 @@ object LamaDemo extends Build {
       "twitter" at "http://maven.twttr.com"
     ),
     libraryDependencies ++= Seq(
-      "com.htc.lama" %% "lama-storm" % "0.0.2",
+      "com.htc.lama" %% "lama-storm" % "0.0.2" exclude("storm", "storm"),
       "com.h2database" % "h2" % "1.4.182",
       "edu.stanford.nlp" % "stanford-corenlp" % "3.4.1",
       "org.apache.tika" % "tika-core" % "1.6"
