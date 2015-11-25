@@ -4,6 +4,11 @@ import scala.language.implicitConversions
 
 import com.twitter.algebird.{HLL, HyperLogLogMonoid, SketchMap, SketchMapParams}
 
+/**
+ * Define constants for map count job
+ *
+ * @author Wenrui Jiang (roy_jiang@htc.com)
+ */
 package object mapcount {
 
   val Tab = "\t"

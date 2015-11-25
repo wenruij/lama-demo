@@ -20,7 +20,7 @@ import com.htc.studio.util.jdbc._
  *
  * Store is a h2 mem database.
  *
- * @author Roy Jiang (roy_jiang@htc.com)
+ * @author Wenrui Jiang (roy_jiang@htc.com)
  */
 case class MapCountStormJob(args: Args)
   extends MapCountJob[Storm] with HTCStormJob {

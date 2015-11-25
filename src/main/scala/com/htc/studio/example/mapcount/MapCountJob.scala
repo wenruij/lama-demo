@@ -10,7 +10,7 @@ import com.htc.studio.summingbird.job.HTCJob
  * job logic define for lama job.
  * The job count handheld device popularity distribution on the whole world.
  *
- * @author Roy Jiang (roy_jiang@htc.com)
+ * @author Wenrui Jiang (roy_jiang@htc.com)
  */
 trait MapCountJob[P <: Platform[P]] extends HTCJob[P] {
   override implicit val batcher = Batcher.ofHours(1)
