@@ -1,7 +1,9 @@
 package com.htc.studio.example.mapcount
 
+import java.nio.charset.CodingErrorAction
 import javax.xml.bind.DatatypeConverter
 
+import scala.io.Codec
 import scala.util.{Random, Try}
 
 import com.twitter.algebird.HyperLogLog
@@ -24,6 +26,11 @@ import com.htc.studio.util.jdbc._
  */
 case class MapCountStormJob(args: Args)
   extends MapCountJob[Storm] with HTCStormJob {
+
+  @transient implicit val codec = Codec("UTF-8")
+  codec.onMalformedInput(CodingErrorAction.REPLACE)
+  codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
+
 
   /** load all countries list into memory */
   val countries =

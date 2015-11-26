@@ -1,5 +1,8 @@
 package com.htc.studio.example.wordcount
 
+import java.nio.charset.CodingErrorAction
+
+import scala.io.Codec
 import scala.util.Random
 
 import com.twitter.scalding.Args
@@ -15,6 +18,11 @@ import com.htc.studio.summingbird.storm.HTCStormJob
  */
 case class WordCountStormJob(override val args: Args)
   extends WordCountJob[Storm] with HTCStormJob {
+
+  @transient implicit val codec = Codec("UTF-8")
+  codec.onMalformedInput(CodingErrorAction.REPLACE)
+  codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
+
   /** The word list for the generator. */
   val wordFile = args.getOrElse("words", "data/words.txt")
   /** The word list in memory. Remove those ends with 's. */
